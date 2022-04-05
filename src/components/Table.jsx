@@ -1,7 +1,7 @@
-const Table = ({ children }) => {
+const Table = ({ children, squad, htown, sbase }) => {
   return (
     <>
-      <h2 className="mb-3"></h2>
+      <h2 className="mb-3">{squad} from {htown} based in {sbase}</h2>
       <div className="container">
         <table className="table table-dark text-left">
           <thead>
