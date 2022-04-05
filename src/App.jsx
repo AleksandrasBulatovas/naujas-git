@@ -3,9 +3,18 @@ import RowList from "./components/RowList";
 import CreateForm from "./components/CreateForm";
 import Modal from "./components/Modal";
 import data from "./data/data.json";
+import { useState } from "react";
 
 
 function App() {
+    const [heroData, setHeroData] = useState(data)
+
+    const saveHeroData = (data)=>{
+      const cData= {...heroData}
+      cData.members.push(data)
+      setHeroData(cData)
+
+    }
 
   return (
     <div className="jumbotron text-center">
@@ -14,9 +23,9 @@ function App() {
         htown={data.homeTown}
         sbase={data.secretBase}
       >
-        <RowList />
+        <RowList data={heroData} />
       </Table>
-      <CreateForm />
+      <CreateForm onSave={saveHeroData}/>
       <Modal />
     </div>
   );

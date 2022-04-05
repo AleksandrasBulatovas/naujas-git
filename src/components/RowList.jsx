@@ -1,9 +1,19 @@
 import Row from "./Row";
 
-const RowList = () => {
+const RowList = (props) => {
+  console.log(props)
+  
   return (
     <>
-      <Row />
+      {props.data.members?.map((member,i) => (
+        <Row
+          key={i}
+          name={member.name}
+          age={member.age}
+          secretIdentity={member.secretIdentity}
+          power={member.power}
+        />
+      ))}
     </>
   );
 };
